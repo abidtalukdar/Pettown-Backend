@@ -7,10 +7,12 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'example.com'
+    # origins '*' won't work!
+    origins 'localhost:3001' # Make sure to change this when you deploy!
 
     resource '*',
       headers: :any,
+      credentials: true,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
