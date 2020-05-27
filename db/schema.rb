@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 2020_05_25_211320) do
 
   create_table "comments", force: :cascade do |t|
     t.bigint "image_id", null: false
+    t.bigint "user_id", null: false
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["image_id"], name: "index_comments_on_image_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "follows", force: :cascade do |t|
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_211320) do
   end
 
   add_foreign_key "comments", "images"
+  add_foreign_key "comments", "users"
   add_foreign_key "images", "users"
   add_foreign_key "likes", "images"
   add_foreign_key "likes", "users"

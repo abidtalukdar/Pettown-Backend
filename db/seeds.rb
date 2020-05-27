@@ -20,3 +20,4 @@ Image.create(user_id: 2, image_url:"https://cdn.pixabay.com/photo/2015/04/23/22/
 Image.create(user_id: 1, image_url:"https://cdn.eso.org/images/screen/eso1907a.jpg", caption: "wow", date: DateTime.now.strftime("%B %d, %Y").to_s)
 Image.create(user_id: 1, image_url:"https://cdn.eso.org/images/screen/eso1907a.jpg", caption: "wow", date: DateTime.now.strftime("%B %d, %Y").to_s)
 Image.create(user_id: 1, image_url:"https://cdn.eso.org/images/screen/eso1907a.jpg", caption: "wow", date: DateTime.now.strftime("%B %d, %Y").to_s)
+

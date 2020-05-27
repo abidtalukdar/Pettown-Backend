@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :likes
+    resources :likes
     resources :comments
     resources :images
     resources :users
@@ -11,14 +11,16 @@ Rails.application.routes.draw do
     get "/users/:id/images", to: "users#images"
     get "/users/:id/followees/images", to: "users#followees_images"
     get "/images/:id/likes", to: "images#likes"
+    get "/images/:id/comments", to: "images#comments"
+
 
     post "/images", to: "images#create"
+    post "/comments", to: "comments#create"
     post "/likes", to: "likes#create"
     post "/signup", to: "users#create"
     post "/login", to: "auth#login"
     post "/logout", to: "auth#logout"
     post "/follows", to: "follows#create"
-    post "/images/:id", to: "images#update"
 
     delete "/follows/:currentUserId/:followeeId", to: "follows#delete"
     delete "/likes/:imageId/:userId", to: "likes#delete"

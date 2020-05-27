@@ -22,4 +22,10 @@ class ImagesController < ApplicationController
         render json: likes
     end
 
+    def comments 
+        image = Image.find(params[:id])
+        comments = image.comments
+        render json: comments
+    end
+
 end

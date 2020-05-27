@@ -7,10 +7,9 @@ class User < ApplicationRecord
     has_many :following_users, foreign_key: :followee_id, class_name: 'Follow' # User becomes the followee and the person that follows the user is the follower
     has_many :followers, through: :following_users
     
-    has_many :likes
     has_many :images
-    has_many :comments, through: :images
     has_many :likes
+    has_many :comments
 
     validates_uniqueness_of :username, :case_sensitive => false
     validates :password, presence: true, length: {:within => 6..20}, allow_nil: true
