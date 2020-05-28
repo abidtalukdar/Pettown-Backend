@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get "/users", to: "users#index"
     get "/users/:id/images", to: "users#images"
     get "/users/:id/followees/images", to: "users#followees_images"
+    get "/users/:id/suggested", to: "users#suggested_followees"
     get "/images/:id/likes", to: "images#likes"
     get "/images/:id/comments", to: "images#comments"
 
@@ -24,6 +25,10 @@ Rails.application.routes.draw do
 
     delete "/follows/:currentUserId/:followeeId", to: "follows#delete"
     delete "/likes/:imageId/:userId", to: "likes#delete"
+    delete "/images/:id", to: "images#delete"
+    delete "/comments/:id", to: "comments#delete"
+
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

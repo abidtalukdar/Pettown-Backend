@@ -27,5 +27,11 @@ class ImagesController < ApplicationController
         comments = image.comments
         render json: comments
     end
+    
+    def destroy
+        image_instance = Image.find_by(id: params[:id])
+        image_instance.destroy
+        render json: image_instance
+    end 
 
 end

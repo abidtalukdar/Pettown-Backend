@@ -18,10 +18,10 @@ class UsersController < ApplicationController
         render json: user
     end
 
-    def suggested_followers
+    def suggested_followees
         user = User.find(params[:id])
-        suggested_followers = User.all.select {|suggested_follower| !user.friends.include?(suggested_follower) && suggested_follower.username != user.username}.shuffle.slice(0, 3)
-        render json: suggested_followers
+        suggested_followees = User.all.select {|suggested_followee| !user.followees.include?(suggested_followee) && suggested_followee.username != user.username}.shuffle.slice(0, 3)
+        render json: suggested_followees
     end 
 
     def images
@@ -52,6 +52,7 @@ class UsersController < ApplicationController
         user = User.find(params[:id])
         followees_images = []
         user.followees.each {|followee| followee.images.each {|followees_image| followees_images << followees_image}}
+        user.images.each {|image| followees_images << image }
         render json: followees_images
     end
 

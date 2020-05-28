@@ -13,4 +13,10 @@ class CommentsController < ApplicationController
         comment = Comment.find(params[:id])
         render json: comment
     end
+
+    def destroy
+        comment_instance = Comment.find_by(id: params[:id])
+        comment_instance.destroy
+        render json: comment_instance
+    end 
 end
